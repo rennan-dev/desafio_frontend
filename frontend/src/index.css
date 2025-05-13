@@ -1,0 +1,101 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 142 76% 96%;
+    --secondary-foreground: 142 76% 36%;
+    --muted: 142 76% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 142 76% 96%;
+    --accent-foreground: 142 76% 36%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 76% 36%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-emerald-500;
+}
+
+.nav-link {
+  @apply relative text-gray-700 hover:text-green-600 transition-colors duration-200;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 transition-all duration-200;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.project-card {
+  @apply relative overflow-hidden rounded-lg transition-all duration-300 hover:shadow-xl;
+}
+
+.project-overlay {
+  @apply absolute inset-0 bg-black bg-opacity-0 transition-all duration-300 flex items-center justify-center opacity-0;
+}
+
+.project-card:hover .project-overlay {
+  @apply bg-opacity-70 opacity-100;
+}
+
+.skill-tag {
+  @apply px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800 m-1;
+}
+
+.projects-container {
+  @apply flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 px-4 -mx-4;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.projects-container::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+.project-slide {
+  @apply snap-center flex-none w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)];
+}
+
+.scroll-button {
+  @apply absolute top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-lg 
+         text-green-600 hover:text-green-700 hover:bg-white transition-all duration-200
+         focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2;
+}
+
+.scroll-button-left {
+  @apply left-2 md:left-4;
+}
+
+.scroll-button-right {
+  @apply right-2 md:right-4;
+}
